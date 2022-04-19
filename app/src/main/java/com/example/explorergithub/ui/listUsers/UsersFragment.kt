@@ -1,13 +1,21 @@
 package com.example.explorergithub.ui.listUsers
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.explorergithub.R
+import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.explorergithub.Presenter
+import com.example.explorergithub.data.User
+import com.example.explorergithub.databinding.FragmentUsersBinding
+import com.example.explorergithub.tracker.Adapter
+import com.example.explorergithub.tracker.ClickListener
 
 class UsersFragment : Fragment() {
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,7 +25,31 @@ class UsersFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_users, container, false)
+        val binding = FragmentUsersBinding.inflate(inflater, container, false)
+        val viewModel = ViewModelProvider(
+            this,
+            UsersViewModelFactory(Presenter())
+        ).get(UsersViewModel::class.java)
+
+        val adapter = Adapter(
+            ClickListener { user: User -> onUserClicked(user) }
+        )
+
+        binding.usersRecyclerView.adapter = adapter
+        val manager = LinearLayoutManager(context)
+        binding.usersRecyclerView.layoutManager = manager
+
+        viewModel.users.observe(viewLifecycleOwner) {
+            it?.let {
+                adapter.addHeaderAndSubmitList(it)
+            }
+        }
+
+        return binding.root
+    }
+
+    private fun onUserClicked(user: User) {
+        Toast.makeText(context, user.login, Toast.LENGTH_SHORT).show()
     }
 
 }
