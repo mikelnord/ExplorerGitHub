@@ -1,4 +1,4 @@
-package com.example.explorergithub.data
+package com.example.explorergithub.model.data
 
 data class User(
     val login:String,

@@ -4,35 +4,40 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.explorergithub.Presenter
-import com.example.explorergithub.data.User
+import com.example.explorergithub.model.Presenter
+import com.example.explorergithub.R
+import com.example.explorergithub.model.data.User
 import com.example.explorergithub.databinding.FragmentUsersBinding
 import com.example.explorergithub.tracker.Adapter
 import com.example.explorergithub.tracker.ClickListener
 
 class UsersFragment : Fragment() {
 
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    private var _binding: FragmentUsersBinding? = null
+    private val binding get() = _binding!!
+    private val viewModel by activityViewModels<UsersViewModel> {
+        UsersViewModelFactory(
+            Presenter()
+        )
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        val binding = FragmentUsersBinding.inflate(inflater, container, false)
-        val viewModel = ViewModelProvider(
-            this,
-            UsersViewModelFactory(Presenter())
-        ).get(UsersViewModel::class.java)
+    ): View {
+        _binding = FragmentUsersBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         val adapter = Adapter(
-            ClickListener { user: User -> onUserClicked(user) }
+            ClickListener { user: User -> viewModel.onUserClicked(user) }
         )
 
         binding.usersRecyclerView.adapter = adapter
@@ -44,12 +49,20 @@ class UsersFragment : Fragment() {
                 adapter.addHeaderAndSubmitList(it)
             }
         }
+        viewModel.navigateToUser.observe(viewLifecycleOwner) {
+            it?.let {
+                findNavController().navigate(
+                    R.id.action_usersFragment_to_reposFragment
+                )
+                viewModel.doneNavigating()
+            }
+        }
 
-        return binding.root
     }
 
-    private fun onUserClicked(user: User) {
-        Toast.makeText(context, user.login, Toast.LENGTH_SHORT).show()
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
 }

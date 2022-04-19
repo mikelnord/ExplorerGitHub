@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.explorergithub.data.User
+import com.example.explorergithub.model.data.User
 import com.example.explorergithub.databinding.ItemUsersBinding
 
 

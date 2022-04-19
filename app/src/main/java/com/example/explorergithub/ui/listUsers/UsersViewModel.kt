@@ -3,16 +3,27 @@ package com.example.explorergithub.ui.listUsers
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.explorergithub.Presenter
-import com.example.explorergithub.data.User
+import com.example.explorergithub.model.Presenter
+import com.example.explorergithub.model.data.User
 
 class UsersViewModel(presenter: Presenter) : ViewModel() {
-    private var touser = MutableLiveData<User?>()
-    val users : MutableLiveData<List<User>> = MutableLiveData(presenter.getUsers())
+    lateinit var touser: User
+    val users: MutableLiveData<List<User>> = MutableLiveData(presenter.getUsers())
 
-    fun onUserClicked(user:User) {
 
+    private val _navigateToUser = MutableLiveData<Boolean?>()
+    val navigateToUser
+        get() = _navigateToUser
+
+    fun onUserClicked(user: User) {
+        touser = user
+        _navigateToUser.value = true
     }
+
+    fun doneNavigating() {
+        _navigateToUser.value = null
+    }
+
 
 }
 
