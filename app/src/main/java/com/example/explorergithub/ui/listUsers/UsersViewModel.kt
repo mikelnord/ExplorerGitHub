@@ -3,11 +3,11 @@ package com.example.explorergithub.ui.listUsers
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.explorergithub.model.Repository
+import com.example.explorergithub.model.IRepository
 import com.example.explorergithub.model.data.Repo
 import com.example.explorergithub.model.data.User
 
-class UsersViewModel(private val repository: Repository) : ViewModel() {
+class UsersViewModel(private val repository: IRepository) : ViewModel() {
     lateinit var toUser: User
     val users: MutableLiveData<List<User>> = MutableLiveData(repository.getUsers())
     lateinit var repoUser:MutableLiveData<List<Repo>>
@@ -30,7 +30,7 @@ class UsersViewModel(private val repository: Repository) : ViewModel() {
 }
 
 class UsersViewModelFactory(
-    private val repository: Repository
+    private val repository: IRepository
 ) : ViewModelProvider.Factory {
     @Suppress("unchecked_cast")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {

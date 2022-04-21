@@ -3,7 +3,7 @@ package com.example.explorergithub.model
 import com.example.explorergithub.model.data.Repo
 import com.example.explorergithub.model.data.User
 
-class Repository {
+class MockRepository : IRepository {
 
     private val user1 = User("mojombo", 1, "https://avatars.githubusercontent.com/u/1?v=4")
     private val user2 = User("defunkt", 2, "https://avatars.githubusercontent.com/u/2?v=4")
@@ -22,11 +22,11 @@ class Repository {
         Repo(3, user2, "NasaLocator")
     )
 
-    fun getUsers(): List<User> {
+    override fun getUsers(): List<User> {
         return listUser
     }
 
-    fun getPepo(user: User): List<Repo> {
+    override fun getPepo(user: User): List<Repo> {
         return listRepo.filter { it.owner == user }
     }
 
