@@ -8,11 +8,11 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.explorergithub.model.Presenter
+import com.example.explorergithub.model.Repository
 import com.example.explorergithub.R
 import com.example.explorergithub.model.data.User
 import com.example.explorergithub.databinding.FragmentUsersBinding
-import com.example.explorergithub.tracker.Adapter
+import com.example.explorergithub.tracker.UsersAdapter
 import com.example.explorergithub.tracker.ClickListener
 
 class UsersFragment : Fragment() {
@@ -21,7 +21,7 @@ class UsersFragment : Fragment() {
     private val binding get() = _binding!!
     private val viewModel by activityViewModels<UsersViewModel> {
         UsersViewModelFactory(
-            Presenter()
+            Repository()
         )
     }
 
@@ -36,7 +36,7 @@ class UsersFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val adapter = Adapter(
+        val adapter = UsersAdapter(
             ClickListener { user: User -> viewModel.onUserClicked(user) }
         )
 

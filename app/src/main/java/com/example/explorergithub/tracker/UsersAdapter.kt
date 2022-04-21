@@ -9,7 +9,7 @@ import com.example.explorergithub.model.data.User
 import com.example.explorergithub.databinding.ItemUsersBinding
 
 
-class Adapter(private val clickListener: ClickListener) :
+class UsersAdapter(private val clickListener: ClickListener) :
     ListAdapter<User, RecyclerView.ViewHolder>(DiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -35,7 +35,7 @@ class Adapter(private val clickListener: ClickListener) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: User, clickListener: ClickListener) {
-            binding.textView.text = item.login
+            binding.loginTextView.text = item.login
             binding.materialCardView.setOnClickListener {
                 clickListener.onClick(item)
             }
