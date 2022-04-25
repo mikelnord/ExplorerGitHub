@@ -1,4 +1,4 @@
-package com.example.explorergithub.tracker
+package com.example.explorergithub.ui.tracker
 
 
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.explorergithub.databinding.ItemReposBinding
-import com.example.explorergithub.model.data.Repo
+import com.example.explorergithub.model.Repo
 
 
 class RepoAdapter :

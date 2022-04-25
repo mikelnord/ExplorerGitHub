@@ -1,4 +1,4 @@
-package com.example.explorergithub.ui.listUsers
+package com.example.explorergithub.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,10 +10,10 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.explorergithub.R
 import com.example.explorergithub.databinding.FragmentUsersBinding
-import com.example.explorergithub.model.MockRepository
-import com.example.explorergithub.model.data.User
-import com.example.explorergithub.tracker.ClickListener
-import com.example.explorergithub.tracker.UsersAdapter
+import com.example.explorergithub.data.MockRepository
+import com.example.explorergithub.model.User
+import com.example.explorergithub.ui.tracker.ClickListener
+import com.example.explorergithub.ui.tracker.UsersAdapter
 
 class UsersFragment : Fragment() {
 

@@ -1,11 +1,11 @@
-package com.example.explorergithub.ui.listUsers
+package com.example.explorergithub.ui
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.explorergithub.model.IRepository
-import com.example.explorergithub.model.data.Repo
-import com.example.explorergithub.model.data.User
+import com.example.explorergithub.model.Repo
+import com.example.explorergithub.model.User
 
 class UsersViewModel(private val repository: IRepository) : ViewModel() {
     lateinit var toUser: User
@@ -18,7 +18,7 @@ class UsersViewModel(private val repository: IRepository) : ViewModel() {
 
     fun onUserClicked(user: User) {
         toUser = user
-        repoUser = MutableLiveData(repository.getPepo(toUser))
+        repoUser = MutableLiveData(repository.getRepo(toUser))
         _navigateToUser.value = true
     }
 

@@ -1,4 +1,4 @@
-package com.example.explorergithub.model.data
+package com.example.explorergithub.model
 
 data class User(
     val login:String,
@@ -8,6 +8,6 @@ data class User(
 
 data class Repo(
     val id:Int,
-    val owner:User,
+    val owner: User,
     val name:String
 )

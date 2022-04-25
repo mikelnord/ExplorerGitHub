@@ -1,4 +1,4 @@
-package com.example.explorergithub.ui.listRepos
+package com.example.explorergithub.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,8 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.explorergithub.databinding.FragmentReposBinding
-import com.example.explorergithub.tracker.RepoAdapter
-import com.example.explorergithub.ui.listUsers.UsersViewModel
+import com.example.explorergithub.ui.tracker.RepoAdapter
 import android.net.Uri
 import com.bumptech.glide.Glide
 import com.example.explorergithub.R

@@ -1,7 +1,8 @@
-package com.example.explorergithub.model
+package com.example.explorergithub.data
 
-import com.example.explorergithub.model.data.Repo
-import com.example.explorergithub.model.data.User
+import com.example.explorergithub.model.IRepository
+import com.example.explorergithub.model.Repo
+import com.example.explorergithub.model.User
 
 class MockRepository : IRepository {
 
@@ -26,7 +27,7 @@ class MockRepository : IRepository {
         return listUser
     }
 
-    override fun getPepo(user: User): List<Repo> {
+    override fun getRepo(user: User): List<Repo> {
         return listRepo.filter { it.owner == user }
     }
 
