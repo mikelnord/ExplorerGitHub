@@ -42,7 +42,7 @@ class UsersFragment : Fragment() {
         binding.usersRecyclerView.adapter = adapter
         val manager = LinearLayoutManager(context)
         binding.usersRecyclerView.layoutManager = manager
-
+        viewModel.onShowUsers()
         viewModel.users.observe(viewLifecycleOwner) {
             it?.let {
                 adapter.addHeaderAndSubmitList(it)

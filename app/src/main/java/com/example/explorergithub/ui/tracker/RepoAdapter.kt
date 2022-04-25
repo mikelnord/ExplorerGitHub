@@ -27,7 +27,7 @@ class RepoAdapter :
         }
     }
 
-    fun addHeaderAndSubmitList(list: List<Repo>?) {
+    fun addHeaderAndSubmitList(list: List<Repo>) {
         submitList(list)
     }
 

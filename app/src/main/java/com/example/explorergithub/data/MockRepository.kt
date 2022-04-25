@@ -3,6 +3,7 @@ package com.example.explorergithub.data
 import com.example.explorergithub.model.IRepository
 import com.example.explorergithub.model.Repo
 import com.example.explorergithub.model.User
+import io.reactivex.rxjava3.core.Single
 
 class MockRepository : IRepository {
 
@@ -23,12 +24,12 @@ class MockRepository : IRepository {
         Repo(3, user2, "NasaLocator")
     )
 
-    override fun getUsers(): List<User> {
-        return listUser
+    override fun getUsers(): Single<List<User>> {
+        return Single.just(listUser)
     }
 
-    override fun getRepo(user: User): List<Repo> {
-        return listRepo.filter { it.owner == user }
+    override fun getRepo(user: User): Single<List<Repo>> {
+        return Single.just(listRepo.filter { it.owner == user })
     }
 
 }
