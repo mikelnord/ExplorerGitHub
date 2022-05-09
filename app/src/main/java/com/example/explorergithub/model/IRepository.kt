@@ -1,6 +1,8 @@
 package com.example.explorergithub.model
 
+import io.reactivex.rxjava3.core.Single
+
 interface IRepository {
-    fun getUsers(): List<User>
-    fun getRepo(user: User): List<Repo>
+    fun getUsers(): Single<List<User>>
+    fun getRepo(user: User): Single<List<Repo>>
 }
