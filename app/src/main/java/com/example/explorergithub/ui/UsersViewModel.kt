@@ -12,7 +12,7 @@ import io.reactivex.rxjava3.kotlin.subscribeBy
 class UsersViewModel(private val repository: IRepository) : ViewModel() {
     lateinit var toUser: User
     val users: MutableLiveData<List<User>> = MutableLiveData()
-    var repoUser:MutableLiveData<List<Repo>> = MutableLiveData()
+    var repoUser: MutableLiveData<List<Repo>> = MutableLiveData()
 
     private val _navigateToUser = MutableLiveData<Boolean?>()
     val navigateToUser
@@ -39,6 +39,7 @@ class UsersViewModel(private val repository: IRepository) : ViewModel() {
                 }
         )
     }
+
     private fun onShowRepo(user: User) {
         compositeDisposable.add(
             repository

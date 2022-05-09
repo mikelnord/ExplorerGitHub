@@ -1,4 +1,4 @@
-package com.example.explorergithub.data.retrofit
+package com.example.explorergithub.data.api
 
 import com.example.explorergithub.model.IRepository
 import com.example.explorergithub.model.Repo
@@ -8,7 +8,7 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
-class RetrofitRepository : IRepository {
+class GitHubRepository : IRepository {
     private val retrofit = Retrofit.Builder()
         .baseUrl("https://api.github.com/")
         .addCallAdapterFactory(RxJava3CallAdapterFactory.create())

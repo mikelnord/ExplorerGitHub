@@ -1,4 +1,4 @@
-package com.example.explorergithub.data.retrofit
+package com.example.explorergithub.data.api
 
 import com.example.explorergithub.model.Repo
 import com.example.explorergithub.model.User
