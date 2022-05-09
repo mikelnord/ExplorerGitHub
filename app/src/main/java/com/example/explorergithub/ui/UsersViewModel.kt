@@ -4,8 +4,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.explorergithub.model.IRepository
-import com.example.explorergithub.model.Repo
-import com.example.explorergithub.model.User
+import com.example.explorergithub.model.entity.Repo
+import com.example.explorergithub.model.entity.User
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.kotlin.subscribeBy
 
