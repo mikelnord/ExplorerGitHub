@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.explorergithub.R
 import com.example.explorergithub.data.api.GitHubRepository
 import com.example.explorergithub.databinding.FragmentUsersBinding
-import com.example.explorergithub.model.User
+import com.example.explorergithub.model.entity.User
 import com.example.explorergithub.ui.tracker.ClickListener
 import com.example.explorergithub.ui.tracker.UsersAdapter
 

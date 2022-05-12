@@ -1,8 +1,8 @@
 package com.example.explorergithub.data.api
 
 import com.example.explorergithub.model.IRepository
-import com.example.explorergithub.model.Repo
-import com.example.explorergithub.model.User
+import com.example.explorergithub.model.entity.Repo
+import com.example.explorergithub.model.entity.User
 import io.reactivex.rxjava3.core.Single
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory

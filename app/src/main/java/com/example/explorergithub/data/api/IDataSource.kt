@@ -1,7 +1,7 @@
 package com.example.explorergithub.data.api
 
-import com.example.explorergithub.model.Repo
-import com.example.explorergithub.model.User
+import com.example.explorergithub.model.entity.Repo
+import com.example.explorergithub.model.entity.User
 import io.reactivex.rxjava3.core.Single
 import retrofit2.http.GET
 import retrofit2.http.Path

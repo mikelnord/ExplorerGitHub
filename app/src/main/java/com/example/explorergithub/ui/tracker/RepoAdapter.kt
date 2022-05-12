@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.explorergithub.databinding.ItemReposBinding
-import com.example.explorergithub.model.Repo
+import com.example.explorergithub.model.entity.Repo
 
 
 class RepoAdapter :
