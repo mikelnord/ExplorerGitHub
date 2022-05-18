@@ -20,13 +20,6 @@ class UsersFragment : Fragment() {
 
     private var _binding: FragmentUsersBinding? = null
     private val binding get() = _binding!!
-//    private val viewModel by activityViewModels<UsersViewModel> {
-//        UsersViewModelFactory(
-//            //MockRepository()
-//        GitHubRepository()
-//        )
-//    }
-
     private val viewModel by  sharedViewModel<UsersViewModel>()
 
     override fun onCreateView(
