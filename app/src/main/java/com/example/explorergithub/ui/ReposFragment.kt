@@ -12,8 +12,9 @@ import com.example.explorergithub.ui.tracker.RepoAdapter
 import android.net.Uri
 import com.bumptech.glide.Glide
 import com.example.explorergithub.R
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class ReposFragment : Fragment() {
 
     private var _binding: FragmentReposBinding? = null
