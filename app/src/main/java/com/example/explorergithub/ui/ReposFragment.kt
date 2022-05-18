@@ -12,13 +12,14 @@ import com.example.explorergithub.ui.tracker.RepoAdapter
 import android.net.Uri
 import com.bumptech.glide.Glide
 import com.example.explorergithub.R
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 
 class ReposFragment : Fragment() {
 
     private var _binding: FragmentReposBinding? = null
     private val binding get() = _binding!!
-    private val viewModel by activityViewModels<UsersViewModel>()
+    private val viewModel by sharedViewModel<UsersViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

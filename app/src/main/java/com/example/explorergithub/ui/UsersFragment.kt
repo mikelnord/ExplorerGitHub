@@ -14,17 +14,13 @@ import com.example.explorergithub.databinding.FragmentUsersBinding
 import com.example.explorergithub.model.entity.User
 import com.example.explorergithub.ui.tracker.ClickListener
 import com.example.explorergithub.ui.tracker.UsersAdapter
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class UsersFragment : Fragment() {
 
     private var _binding: FragmentUsersBinding? = null
     private val binding get() = _binding!!
-    private val viewModel by activityViewModels<UsersViewModel> {
-        UsersViewModelFactory(
-            //MockRepository()
-        GitHubRepository()
-        )
-    }
+    private val viewModel by  sharedViewModel<UsersViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
