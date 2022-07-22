@@ -7,8 +7,11 @@ import io.reactivex.rxjava3.core.Single
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class GitHubRepository : IRepository {
+@Singleton
+class GitHubRepository @Inject constructor()  : IRepository {
     private val retrofit = Retrofit.Builder()
         .baseUrl("https://api.github.com/")
         .addCallAdapterFactory(RxJava3CallAdapterFactory.create())

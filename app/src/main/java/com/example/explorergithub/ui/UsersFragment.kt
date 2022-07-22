@@ -9,22 +9,18 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.explorergithub.R
-import com.example.explorergithub.data.api.GitHubRepository
 import com.example.explorergithub.databinding.FragmentUsersBinding
 import com.example.explorergithub.model.entity.User
 import com.example.explorergithub.ui.tracker.ClickListener
 import com.example.explorergithub.ui.tracker.UsersAdapter
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class UsersFragment : Fragment() {
 
     private var _binding: FragmentUsersBinding? = null
     private val binding get() = _binding!!
-    private val viewModel by activityViewModels<UsersViewModel> {
-        UsersViewModelFactory(
-            //MockRepository()
-        GitHubRepository()
-        )
-    }
+    private val viewModel by activityViewModels<UsersViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

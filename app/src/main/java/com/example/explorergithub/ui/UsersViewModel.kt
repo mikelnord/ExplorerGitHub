@@ -2,14 +2,16 @@ package com.example.explorergithub.ui
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import com.example.explorergithub.model.IRepository
+import com.example.explorergithub.data.api.GitHubRepository
 import com.example.explorergithub.model.entity.Repo
 import com.example.explorergithub.model.entity.User
+import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.kotlin.subscribeBy
+import javax.inject.Inject
 
-class UsersViewModel(private val repository: IRepository) : ViewModel() {
+@HiltViewModel
+class UsersViewModel @Inject constructor(private val repository: GitHubRepository) : ViewModel() {
     lateinit var toUser: User
     val users: MutableLiveData<List<User>> = MutableLiveData()
     var repoUser: MutableLiveData<List<Repo>> = MutableLiveData()
@@ -48,19 +50,5 @@ class UsersViewModel(private val repository: IRepository) : ViewModel() {
                     repoUser.postValue(it)
                 }
         )
-    }
-
-
-}
-
-class UsersViewModelFactory(
-    private val repository: IRepository
-) : ViewModelProvider.Factory {
-    @Suppress("unchecked_cast")
-    override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(UsersViewModel::class.java)) {
-            return UsersViewModel(repository) as T
-        }
-        throw IllegalArgumentException("Unknown ViewModel class")
     }
 }
